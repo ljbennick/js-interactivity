@@ -1,15 +1,18 @@
+document.querySelector("form").addEventListener("submit", addMovie)
 const message = document.querySelector('#message')
-console.log("Hello bitch!")
+
+console.log("Hello guy! totally forgot to change this...oops")
+
 function addMovie(event){
     event.preventDefault()
     let inputField = document.querySelector('input')
     let movie = document.createElement("li")
     let movieTitle = document.createElement("span")
     
-    movieTitle.addEventListener("click", crossOffMovie)
-
     movieTitle.textContent = inputField.value
+    movieTitle.addEventListener("click", crossOffMovie)
     movie.appendChild(movieTitle)
+
 
     let deleteBtn = document.createElement("button")
     deleteBtn.textContent = "X"
@@ -22,7 +25,6 @@ function addMovie(event){
     inputField.value = ""
 }
 
-document.querySelector("form").addEventListener("submit", addMovie)
 
 function deleteMovie(event){
     message.textContent = `${event.target.parentNode.firstChild.textContent} deleted!`
@@ -35,7 +37,7 @@ function crossOffMovie(event){
     if(event.target.classList.contains("checked") === true){
         message.textContent = `${event.target.textContent} watched! Nice! Was it good?`
     } else {
-        messsage.textContent = `You wanted the movie, "${event.target.textContent}" back.`
+        messsage.textContent = `You wanted the movie, ${event.target.textContent} back.`
     }
     revealMessage()
 }
